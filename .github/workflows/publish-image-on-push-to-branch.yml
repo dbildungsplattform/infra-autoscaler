@@ -11,6 +11,7 @@ concurrency:
 
 jobs:
   build_and_push:
+    if: ${{ github.actor != 'dependabot[bot]' }}
     permissions:
       packages: write
       security-events: write
