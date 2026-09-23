@@ -11,7 +11,6 @@ concurrency:
 
 jobs:
   build_and_push:
-    if: ${{ github.actor != 'dependabot[bot]' }}
     permissions:
       packages: write
       security-events: write
@@ -21,7 +20,7 @@ jobs:
       image_name: "infra-autoscaler"
       run_trivy_scan: true
       run_clamav_scan: true
-      image_tag_generation: "ticket_from_branch"
+      image_tag_generation: "ticket_from_branch,commit_hash"
       add_latest_tag: false
       container_registry: "ghcr.io"
       limit-severities-for-sarif: true
